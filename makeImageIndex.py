@@ -11,6 +11,7 @@ mydir = "./"
 
 # get list of files
 jpg_list = glob.glob(mydir + "*.jpg")
+jpgbig_list = glob.glob(mydir + "*.JPG")
 png_list = glob.glob(mydir + "*.png")
 gif_list = glob.glob(mydir + "*.gif")
 
@@ -20,6 +21,11 @@ for x in range(len(jpg_list)):
     img = Image.open(jpg_list[x])
     width, height = img.size
     jpg_reso.append(str(width)+'x'+str(height))
+jpgbig_reso = []
+for x in range(len(jpgbig_list)):
+    img = Image.open(jpgbig_list[x])
+    width, height = img.size
+    jpgbig_reso.append(str(width)+'x'+str(height))
 png_reso = []
 for x in range(len(png_list)):
     img = Image.open(png_list[x])
@@ -36,6 +42,10 @@ jpg_size = []
 for x in range(len(jpg_list)):
     img = os.path.getsize(jpg_list[x])
     jpg_size.append(str(round(img/1000))+'kb')
+jpgbig_size = []
+for x in range(len(jpgbig_list)):
+    img = os.path.getsize(jpgbig_list[x])
+    jpgbig_size.append(str(round(img/1000))+'kb')
 png_size = []
 for x in range(len(png_list)):
     img = os.path.getsize(png_list[x])
@@ -47,13 +57,14 @@ for x in range(len(gif_list)):
 
 # clean file name list
 jpg_list = [e[2:] for e in jpg_list]
+jpgbig_list = [e[2:] for e in jpgbig_list]
 png_list = [e[2:] for e in png_list]
 gif_list = [e[2:] for e in gif_list]
 
 # join lists
-imageNames = jpg_list + png_list + gif_list
-imageSizes = jpg_size + png_size + gif_size
-imageResos = jpg_reso + png_reso + gif_reso
+imageNames = jpg_list + jpgbig_list + png_list + gif_list
+imageSizes = jpg_size + jpgbig_size + png_size + gif_size
+imageResos = jpg_reso + jpgbig_reso + png_reso + gif_reso
 
 # create txt file
 f = open("!ImageIndex.txt","w+")
