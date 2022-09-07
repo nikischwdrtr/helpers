@@ -1,7 +1,7 @@
 # rename files from 1 - ...
 
 import os
-path = '/Users/niklausiff/Desktop/first'
+path = './'
 files = os.listdir(path)
 
 
