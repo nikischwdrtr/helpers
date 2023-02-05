@@ -1,6 +1,6 @@
 # tool which lists all images (jpg/png/gif) in a folder
 # it puts it in new text file 
-# perfectly formatted for javascript array objects
+# perfectly formatted for json
 
 import glob
 import os
@@ -71,11 +71,11 @@ f = open("!ImageIndex.txt","w+")
 
 # write txt file
 for x in range(len(imageNames)):
-    f.write("{ \n")
-    f.write("   id: "+str(x+1)+", \n")
-    f.write("   src: 'images/archive/"+imageNames[x]+"', \n")
-    f.write("   title: '"+imageNames[x]+"', \n")
-    f.write("   size: '"+imageSizes[x]+"', \n")
-    f.write("   reso: '"+imageResos[x]+"', \n")
-    f.write("}, \n")
+    f.write('{ \n')
+    f.write('   "id": "'+str(x+1)+'", \n')
+    f.write('   "src": "images/'+imageNames[x]+'", \n')
+    f.write('   "title": "'+imageNames[x]+'", \n')
+    f.write('   "size": "'+imageSizes[x]+'", \n')
+    f.write('   "reso": "'+imageResos[x]+'", \n')
+    f.write('}, \n')
 f.close()
