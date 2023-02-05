@@ -76,6 +76,6 @@ for x in range(len(imageNames)):
     f.write('   "src": "images/'+imageNames[x]+'", \n')
     f.write('   "title": "'+imageNames[x]+'", \n')
     f.write('   "size": "'+imageSizes[x]+'", \n')
-    f.write('   "reso": "'+imageResos[x]+'", \n')
+    f.write('   "reso": "'+imageResos[x]+'" \n')
     f.write('}, \n')
 f.close()
